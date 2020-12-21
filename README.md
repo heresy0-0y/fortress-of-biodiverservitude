@@ -152,6 +152,7 @@ for now, species will be restricted to birds to ensure a geographically close ma
 :MVP:
 Dropdown country search for species that gets sound, images, and scientific name from the most recent occurrence in the chosen location. Plant images from nearby occurrences will also be retrieved to create a background intended to fill-out what is intended to be felt as a virtual habitat to meet these species that are alive and well.
 A button to pull up an overlayed panel gives users resources to get engaged with biodiversity protection initiatives specified to their locale.
+A sidebar with three buttons: reset page/"home", About GBIF(to get proper api citation and further info about this awesome database), and the "assist your non-human neighbors"/get engaged.
 
 :Post-MVP:
 Search by interactive world map, being able to click the relative area to intiate search.
