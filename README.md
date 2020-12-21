@@ -1,15 +1,15 @@
-:App Title: 
+#### :App Title: 
 fortress of biodiverservitude 
 
-:Description: 
+#### :Description: 
 the fortress enables users to interact with species occurrences by location. by consuming the Gloabal Biodiversity Infiormation Facility's API to access records from scientists, both instutionally backed and citizen alike, across the planet, making this already widely accessible data even more inviting to the average image//non-text attentive web surfer.
 
-:API:
+#### :API:
 https://api.gbif.org/v1/
 i plan to get images (still and/or moving), sound and location of occurrences. 
 for now, species will be restricted to birds to ensure a geographically close match with sound and/or image exists.
 
-:API Snippet:
+#### :API Snippet:
 ~~~
 {
     "offset": 0,
@@ -146,23 +146,23 @@ for now, species will be restricted to birds to ensure a geographically close ma
     "facets": []
 }
 ~~~
-:Wireframe:
+#### :Wireframe:
 <img src="https://i.ibb.co/hBGPvyh/Project.png" alt="project-wireframe" border="0">
 
-:MVP:
+#### :MVP:
 Dropdown country search for species that gets sound, images, and scientific name from the most recent occurrence in the chosen location. Plant images from nearby occurrences will also be retrieved to create a background intended to fill-out what is intended to be felt as a virtual habitat to meet these species that are alive and well.
 A button to pull up an overlayed panel gives users resources to get engaged with biodiversity protection initiatives specified to their locale.
 A sidebar with three buttons: reset page/"home", About GBIF(to get proper api citation and further info about this awesome database), and the "assist your non-human neighbors"/get engaged.
 
-:Post-MVP:
+#### :Post-MVP:
 Search by interactive world map, being able to click the relative area to intiate search.
 Hover over images(both plant and animal) shows excerpts from species wikipedia entries including endangerment status.
 Ability to save/favorite environments by bird species/sound.
 A button to randomly generate different plant images in the same location.
 Option to list 10 most recent ocurrences in chosen location and choose the species to center media generation around instead of random generation of a single species.
 
-:Goals:
+#### :Goals:
 
-:Priority Matrix:
+#### :Priority Matrix:
 
-:Timeframes:
+#### :Timeframes:
