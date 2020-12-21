@@ -182,6 +182,8 @@ Option to list 10 most recent ocurrences in chosen location and choose the speci
 
 #### :Priority Matrix:
 
+<img src="https://i.ibb.co/tPMj5Vh/Screen-Shot-2020-12-21-at-3-31-28-PM.png" alt="Screen-Shot-2020-12-21-at-3-31-28-PM" border="0">
+
 #### :Timeframes:
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
