@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src="app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="./style.css">
   <title>sanctum of biodiverservitude</title>
 </head>
 <body>
+  <div>
+  <div id="map"></div>
+  <pre id="coordinates" class="coordinates"></pre>
+  </div>
   <div class="search-section">
     <form id="search-bar">
       <input type="text" id="blank" placeholder="Country">

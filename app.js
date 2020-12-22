@@ -9,27 +9,34 @@ async function fetchCodes() {
   let url = "https://en.wikipedia.org/w/api.php?" +
     new URLSearchParams({
       origin: "*",
-      // action: "parse",
+      action: "parse",
       page: "ISO 3166-1 alpha-2",
       section: '6',
-      // format: "html",
+      // https://www.mediawiki.org/wiki/API:JSON_version_2
+      formatversion: 2,
+      format: "json",
   });
 
   try {
     const response = await axios.get(url)
     const data = response.data
     // renderScape(data)
-    let document = data
-    let table = document.querySelector('table')
+    let document = data.parse
+    // let table = document.querySelector('table')
     // let sectionHTML = sectionCodes.
-    console.log(data)
-    console.log(table)
+
+    // console.log(data)
+    // console.log(document)
+    let docText = document.text
+    console.log(typeof(docText))
+    console.log(docText)
+
     // console.log(sectionHTML)
   } catch (error) {
     console.log(error)
   }
 }
-let codes = fetchCodes()
+// let codesSectionW = fetchCodes().parse.text
 // let textinner = codes.parse.text
 // let tables = codes.querySelectAll('a')
 // console.log(textinner)
@@ -57,16 +64,16 @@ async function fetchSound(countryCode) {
   }
   //Nest fetchSound function. Use organismID or other param to get sound of same bird
 }
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const textInput = document.querySelector("#blank").value
-  console.log(textInput)
-  // toggleSlate()
-  // setTimeout(toggleSlate, 2700)
-  fetchImage(`${textInput}`)
-  fetchSound(`${textInput}`)
-})
+// fetchCodes()
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault()
+//   const textInput = document.querySelector("#blank").value
+//   console.log(textInput)
+//   // toggleSlate()
+//   // setTimeout(toggleSlate, 2700)
+//   fetchImage(`${textInput}`)
+//   fetchSound(`${textInput}`)
+// })
 
 // console.log(fetchData('AU'))
 
@@ -107,3 +114,33 @@ function renderSound(data) {
   document.querySelector('.species-main').append(audioEl)
 
 }
+
+function removeProfile() {
+  let profile = document.querySelector('.species-main')
+  profile.removeChild()
+}
+mapboxgl.accessToken = 'pk.eyJ1IjoiaGVyZXN5MHYweSIsImEiOiJja2owa292b3AzMGRsMnJwNHB0b2oyY2V1In0.sdVYq4n4mc0bNMrsUhQIfQ';
+var coordinates = document.getElementById('coordinates');
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [0, 0],
+zoom: 2
+});
+  
+var marker = new mapboxgl.Marker({
+draggable: true
+})
+.setLngLat([0, 0])
+.addTo(map);
+  
+function onDragEnd() {
+var lngLat = marker.getLngLat();
+coordinates.style.display = 'block';
+coordinates.innerHTML ='Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+  let longitude = lngLat.lng
+  let latitude = lngLat.lat
+  console.log(longitude, latitude)
+}
+  
+marker.on('dragend', onDragEnd);

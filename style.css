@@ -1,3 +1,6 @@
+/* body { margin: 0; padding: 0; } */
+/* #map { position: re; top: 0; bottom: 0; width: 100%; } */
+  
 html, body {
   min-height: 100%;
 }
@@ -5,7 +8,7 @@ body {
   background-image: url("https://i.ibb.co/7Cjdr7B/IMG-0283.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: space-between;
 }
@@ -21,4 +24,23 @@ button:hover {
   /* background: rgba(253, 209, 128, 0.51); */
   background-image: url("https://i.ibb.co/7Cjdr7B/IMG-0283.jpg");
   opacity: 40%;
+}
+
+.coordinates {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  border-radius: 3px;
+  display: none;
+  }
+div {
+  position: relative;
+  /* display: inline-flex; */
+  min-height: 100%;
 }
