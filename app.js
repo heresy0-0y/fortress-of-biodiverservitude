@@ -4,45 +4,45 @@ const textInput = document.querySelector("#search-bar").value
 let countryCodes = []
 let countryNames = []
 
-async function fetchCodes() {
-  //https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request
-  let url = "https://en.wikipedia.org/w/api.php?" +
-    new URLSearchParams({
-      origin: "*",
-      action: "parse",
-      page: "ISO 3166-1 alpha-2",
-      section: '6',
-      // https://www.mediawiki.org/wiki/API:JSON_version_2
-      formatversion: 2,
-      format: "json",
-  });
+// async function fetchCodes() {
+//   //https://www.mediawiki.org/wiki/API:Parsing_wikitext#GET_request
+//   let url = "https://en.wikipedia.org/w/api.php?" +
+//     new URLSearchParams({
+//       origin: "*",
+//       action: "parse",
+//       page: "ISO 3166-1 alpha-2",
+//       section: '6',
+//       // https://www.mediawiki.org/wiki/API:JSON_version_2
+//       formatversion: 2,
+//       format: "json",
+//   });
 
-  try {
-    const response = await axios.get(url)
-    const data = response.data
-    // renderScape(data)
-    let document = data.parse
-    // let table = document.querySelector('table')
-    // let sectionHTML = sectionCodes.
+//   try {
+//     const response = await axios.get(url)
+//     const data = response.data
+//     // renderScape(data)
+//     let document = data.parse
+//     // let table = document.querySelector('table')
+//     // let sectionHTML = sectionCodes.
 
-    // console.log(data)
-    // console.log(document)
-    let docText = document.text
-    console.log(typeof(docText))
-    console.log(docText)
+//     // console.log(data)
+//     // console.log(document)
+//     let docText = document.text
+//     console.log(typeof(docText))
+//     console.log(docText)
 
-    // console.log(sectionHTML)
-  } catch (error) {
-    console.log(error)
-  }
-}
+//     // console.log(sectionHTML)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// }
 // let codesSectionW = fetchCodes().parse.text
 // let textinner = codes.parse.text
 // let tables = codes.querySelectAll('a')
 // console.log(textinner)
 
-async function fetchImage(countryCode) {
-  let url = `https://api.gbif.org/v1/occurrence/search?limit=1&country=${countryCode}&mediaType=StillImage&taxonKey=212`;
+async function fetchImage(decimalLatitude, decimalLongitude) {
+  let url = `https://api.gbif.org/v1/occurrence/search?limit=1&decimalLatitude=${decimalLatitude}&decimalLongitude=${decimalLongitude}&mediaType=StillImage&taxonKey=212`;
   try {
     const response = await axios.get(url)
     const data = response.data
@@ -64,7 +64,7 @@ async function fetchSound(countryCode) {
   }
   //Nest fetchSound function. Use organismID or other param to get sound of same bird
 }
-// fetchCodes()
+// // // fetchCodes()
 // form.addEventListener('submit', (e) => {
 //   e.preventDefault()
 //   const textInput = document.querySelector("#blank").value
@@ -75,12 +75,11 @@ async function fetchSound(countryCode) {
 //   fetchSound(`${textInput}`)
 // })
 
-// console.log(fetchData('AU'))
-
 function renderScape(data) {
   const name = data.results[0].scientificName
   const image = data.results[0].media[0].identifier
 
+  const speciesProfile = document.createElement('section')
   const speciesMain = document.createElement('p')
   const nameHeading = document.createElement('h3')
   const imageEl = document.createElement('img')
@@ -89,7 +88,9 @@ function renderScape(data) {
   imageEl.src = image
   speciesMain.append(imageEl)
   speciesMain.append(nameHeading)
-  document.querySelector('.species-main').append(speciesMain)
+  speciesProfile.append(speciesMain)
+  speciesProfile.classList.add('species-profile')
+  document.querySelector('.species-main').append(speciesProfile)
 
 }
 
@@ -111,13 +112,16 @@ function renderSound(data) {
   audioEl.innerHTML = `<source src=${sound}>`
   // speciesMain.append(audioEl)
   // speciesMain.append(nameHeading)
-  document.querySelector('.species-main').append(audioEl)
+  document.querySelector('species-profile').append(audioEl)
 
 }
 
 function removeProfile() {
-  let profile = document.querySelector('.species-main')
-  profile.removeChild()
+  let profile = document.querySelector('section')
+  while (profile) {
+    profile.remove()
+  break;
+  }
 }
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGVyZXN5MHYweSIsImEiOiJja2owa292b3AzMGRsMnJwNHB0b2oyY2V1In0.sdVYq4n4mc0bNMrsUhQIfQ';
@@ -142,6 +146,11 @@ coordinates.innerHTML ='Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.
   let longitude = lngLat.lng
   let latitude = lngLat.lat
   console.log(longitude, latitude)
+  let decimalLongitude = `${longitude - 7},${longitude + 7}`
+  let decimalLatitude = `${latitude - 7}, ${latitude + 7}`
+  removeProfile()
+  fetchImage(decimalLatitude, decimalLongitude)
+  fetchSound(decimalLatitude, decimalLongitude)
 }
   
 marker.on('dragend', onDragEnd);
