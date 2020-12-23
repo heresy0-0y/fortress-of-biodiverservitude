@@ -119,6 +119,7 @@ function removeProfile() {
   let profile = document.querySelector('.species-main')
   profile.removeChild()
 }
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGVyZXN5MHYweSIsImEiOiJja2owa292b3AzMGRsMnJwNHB0b2oyY2V1In0.sdVYq4n4mc0bNMrsUhQIfQ';
 var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({

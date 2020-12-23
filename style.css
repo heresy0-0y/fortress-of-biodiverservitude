@@ -1,5 +1,10 @@
 /* body { margin: 0; padding: 0; } */
-/* #map { position: re; top: 0; bottom: 0; width: 100%; } */
+#map {
+  top: 0; 
+  bottom: 0;
+  width: 400px; 
+  height: 300px;
+}
   
 html, body {
   min-height: 100%;
@@ -39,8 +44,3 @@ button:hover {
   border-radius: 3px;
   display: none;
   }
-div {
-  position: relative;
-  /* display: inline-flex; */
-  min-height: 100%;
-}
