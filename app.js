@@ -77,18 +77,27 @@ async function fetchSound(decimalLatitude, decimalLongitude) {
 // })
 
 function renderScape(data) {
-  const name = data.results[0].scientificName
+  const name = data.results[0].species
   const image = data.results[0].media[0].identifier
 
   const speciesProfile = document.createElement('section')
-  const speciesMain = document.createElement('p')
-  const nameHeading = document.createElement('h3')
+  const speciesMain = document.createElement('div')
+  const moreInfoText = document.createElement('div')
+  const moreInfo = document.createElement('div')
   const imageEl = document.createElement('img')
+
+  let nameWiki = ''
+  let temp = name.split(' ')
+  nameWiki += temp[0] + '_' + temp[1]
   
-  nameHeading.innerText = `${name}`
+  moreInfoText.innerHTML = `<a href="https://wikipedia.org/wiki/${nameWiki}">${name}</a>`
+  moreInfo.classList.add('moreInfo')
+  moreInfoText.classList.add('infoText')
+  moreInfo.append(moreInfoText)
   imageEl.src = image
+  speciesMain.classList.add('pic')
   speciesMain.append(imageEl)
-  speciesMain.append(nameHeading)
+  speciesMain.append(moreInfo)
   speciesProfile.append(speciesMain)
   speciesProfile.classList.add('species-profile')
   document.querySelector('.species-main').append(speciesProfile)
@@ -116,6 +125,9 @@ function renderSound(data) {
   audioEl.innerHTML = `<source src=${sound}>`
   // speciesMain.append(audioEl)
   // speciesMain.append(nameHeading)
+
+  //Change destination element, a seperate dropdown for audio
+
   document.querySelector('.species-profile').append(audioEl)
 
 }

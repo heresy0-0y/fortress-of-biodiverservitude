@@ -4,7 +4,7 @@
   /* bottom: 0; */
   min-width: 100%; 
   height: 200px;
-  margin-top: 0;
+  top: 0;
 }
 
 html, body {
@@ -25,7 +25,7 @@ body {
 div {
   min-width: 100%;
 }
-.search-section, .species-main, .species-profile p {
+.search-section, .species-main, .species-profile div{
   /* width: 75%; */
   display: flex;
   flex-direction: column;
@@ -38,6 +38,21 @@ div {
 
 button:hover {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), -3px -3px 3px rgba(0, 0, 0, .17), -3px 3px 3px rgba(0, 0, 0, 0.2), 3px -3px 3px rgba(0, 0, 0, 0.17), -3px -3px 3px rgba(0, 0, 0, 0.2), 3px 3px -3px rgba(0, 0, 0, 0.17);
+}
+
+a:link {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  text-shadow: 1em 2em 1em black;
+}
+
+a:visited {
+  color: rgba(165, 86, 7, 0.735)
+}
+
+a:hover {
+  color: steelblue;
+  border: 2px;
 }
 
 section {
@@ -67,8 +82,30 @@ img {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .42), -4px -4px 4px rgba(0, 0, 0, .32);
 }
 
-audio {
-  color:sandybrown;
+.moreInfo {
+  height: 0;
+  position: fixed;
+  opacity: 0;
+  background-color:rgba(15, 71, 130, 0.721);
+  overflow: hidden;
+  max-width: 90%
+}
+
+.infoText {
+  /* white-space: nowrap; */
+  color:rgba(0, 0, 0, 0.8);
+  top: 80%;
+  overflow: hidden;
+  font-size: 2em;
+  /* transform: translate(50%); */
+}
+
+.species-profile:hover .moreInfo {
+  max-height: 80%;
+  height: 35%;
+  opacity: 100%;
+  width: 80%;
+  transition: .5s ease;
 }
 
 #blank {
@@ -92,7 +129,3 @@ audio {
   display: none;
   width: 190px;
   }
-
-section:hover{
-  top: 0;
-}
