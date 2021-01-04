@@ -1,29 +1,76 @@
 /* body { margin: 0; padding: 0; } */
 #map {
-  top: 0; 
-  bottom: 0;
-  width: 400px; 
-  height: 300px;
+  /* top: 0;  */
+  /* bottom: 0; */
+  min-width: 100%; 
+  height: 200px;
+  margin-top: 0;
 }
-  
+
 html, body {
   min-height: 100%;
 }
+
 body {
   background-image: url("https://i.ibb.co/7Cjdr7B/IMG-0283.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   /* position: relative; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Comfortaa', cursive;
 }
-img {
-  width: 40%;
+div {
+  min-width: 100%;
+}
+.search-section, .species-main, .species-profile p {
+  /* width: 75%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: auto;
   height: auto;
+  max-width: 100%;
 }
+
 button:hover {
-  box-shadow: 3px 3px 3px, -3px -3px 3px, -3px 3px 3px, 3px -3px 3px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), -3px -3px 3px rgba(0, 0, 0, .17), -3px 3px 3px rgba(0, 0, 0, 0.2), 3px -3px 3px rgba(0, 0, 0, 0.17), -3px -3px 3px rgba(0, 0, 0, 0.2), 3px 3px -3px rgba(0, 0, 0, 0.17);
 }
+
+section {
+  /* align-content: stretch; */
+  display: flex;
+  left: auto;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  /* flex-basis: auto; */
+  /* overflow: hidden; */
+  /* max-width: 50%; */
+  /* width: 80%; */
+}
+
+img {
+  /* flex-basis: auto; */
+  /* max-height: 50%; */
+  /* display: block; */
+  left: auto;
+  max-width: 100%;
+  height: auto;
+  /* width: auto; */
+  border-radius: 35px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .42), -4px -4px 4px rgba(0, 0, 0, .32);
+}
+
+audio {
+  color:sandybrown;
+}
+
 #blank {
   background-blend-mode: lighten;
   /* background: rgba(253, 209, 128, 0.51); */
@@ -34,13 +81,18 @@ button:hover {
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  position: absolute;
-  bottom: 40px;
-  left: 10px;
+  position: relative;
+  bottom: 80px;
+  left: 30px;
   padding: 5px 10px;
   margin: 0;
   font-size: 11px;
   line-height: 18px;
   border-radius: 3px;
   display: none;
+  width: 190px;
   }
+
+section:hover{
+  top: 0;
+}

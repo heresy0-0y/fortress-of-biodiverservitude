@@ -51,9 +51,10 @@ async function fetchImage(decimalLatitude, decimalLongitude) {
   } catch (error) {
     console.log(error)
   }
+  fetchSound(decimalLatitude, decimalLongitude)
 }
-async function fetchSound(countryCode) {
-  let url = `https://api.gbif.org/v1/occurrence/search?limit=1&country=${countryCode}&mediaType=Sound&taxonKey=212`;
+async function fetchSound(decimalLatitude, decimalLongitude) {
+  let url = `https://api.gbif.org/v1/occurrence/search?limit=1&decimalLatitude=${decimalLatitude}&decimalLongitude=${decimalLongitude}&mediaType=Sound&taxonKey=212`;
   try {
     const response = await axios.get(url)
     const data = response.data
@@ -98,7 +99,7 @@ function renderSound(data) {
   // const name = data.results[0].scientificName
   let sound = undefined
   data.results[0].media.forEach((e) => {
-    if (e.type = 'Sound') {
+    if (e.type === 'Sound') {
       sound = e.identifier
     }
   })
@@ -109,10 +110,13 @@ function renderSound(data) {
   
   // nameHeading.innerText = `${name}`
   audioEl.controls = true
+  audioEl.loop = true
+  audioEl.autoplay = true
+  audioEl.muted = true
   audioEl.innerHTML = `<source src=${sound}>`
   // speciesMain.append(audioEl)
   // speciesMain.append(nameHeading)
-  document.querySelector('species-profile').append(audioEl)
+  document.querySelector('.species-profile').append(audioEl)
 
 }
 
@@ -128,7 +132,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaGVyZXN5MHYweSIsImEiOiJja2owa292b3AzMGRsMnJwN
 var coordinates = document.getElementById('coordinates');
 var map = new mapboxgl.Map({
 container: 'map',
-style: 'mapbox://styles/mapbox/streets-v11',
+style: 'mapbox://styles/heresy0v0y/ckjgh723n1qnc19p79zecqyba',
 center: [0, 0],
 zoom: 2
 });
@@ -146,11 +150,10 @@ coordinates.innerHTML ='Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.
   let longitude = lngLat.lng
   let latitude = lngLat.lat
   console.log(longitude, latitude)
-  let decimalLongitude = `${longitude - 7},${longitude + 7}`
-  let decimalLatitude = `${latitude - 7}, ${latitude + 7}`
+  let decimalLongitude = `${longitude - 10},${longitude + 10}`
+  let decimalLatitude = `${latitude - 10}, ${latitude + 10}`
   removeProfile()
   fetchImage(decimalLatitude, decimalLongitude)
-  fetchSound(decimalLatitude, decimalLongitude)
 }
   
 marker.on('dragend', onDragEnd);
