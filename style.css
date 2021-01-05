@@ -3,7 +3,7 @@
   /* top: 0;  */
   /* bottom: 0; */
   min-width: 100%; 
-  height: 200px;
+  height: 175px;
   top: 0;
 }
 
@@ -78,7 +78,7 @@ img {
   max-width: 100%;
   height: auto;
   /* width: auto; */
-  border-radius: 35px;
+  border-radius: 14px 35px 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .42), -4px -4px 4px rgba(0, 0, 0, .32);
 }
 
@@ -86,9 +86,9 @@ img {
   height: 0;
   position: fixed;
   opacity: 0;
-  background-color:rgba(15, 71, 130, 0.721);
+  background-color:rgba(15, 71, 130, 0.31);
   overflow: hidden;
-  max-width: 90%
+  max-width: 500px;
 }
 
 .infoText {
@@ -98,6 +98,7 @@ img {
   overflow: hidden;
   font-size: 2em;
   /* transform: translate(50%); */
+  text-shadow: 4px 3px 2px black;
 }
 
 .species-profile:hover .moreInfo {
@@ -129,3 +130,8 @@ img {
   display: none;
   width: 190px;
   }
+
+@media only screen and (min-width: 720px) {
+  img {max-height: 850px;}
+  #map {height: 250px;}
+}
