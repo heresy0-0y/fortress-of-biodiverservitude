@@ -90,7 +90,7 @@ function renderScape(data) {
   let temp = name.split(' ')
   nameWiki += temp[0] + '_' + temp[1]
   
-  moreInfoText.innerHTML = `<a href="https://wikipedia.org/wiki/${nameWiki}">${name}</a>`
+  moreInfoText.innerHTML = `<a href="https://wikipedia.org/wiki/${nameWiki}" target="_blank">${name}</a>`
   moreInfo.classList.add('moreInfo')
   moreInfoText.classList.add('infoText')
   moreInfo.append(moreInfoText)
