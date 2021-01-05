@@ -165,7 +165,15 @@ coordinates.innerHTML ='Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.
   let decimalLongitude = `${longitude - 10},${longitude + 10}`
   let decimalLatitude = `${latitude - 10}, ${latitude + 10}`
   removeProfile()
+  toggleDirections()
   fetchImage(decimalLatitude, decimalLongitude)
 }
   
 marker.on('dragend', onDragEnd);
+
+function toggleDirections() {
+  let directions = document.querySelector('h4')
+  if (directions) {
+    directions.remove()
+  }
+}

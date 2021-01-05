@@ -25,6 +25,15 @@ body {
 div {
   min-width: 100%;
 }
+
+h4 {
+  top: 0;
+}
+
+.hide {
+  opacity: 0;
+}
+
 .search-section, .species-main, .species-profile div{
   /* width: 75%; */
   display: flex;
